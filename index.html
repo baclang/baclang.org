@@ -98,7 +98,7 @@
         within an outer expression is an expression, the inner expression evaluates before the outer expression
         does.
     </p>
-    <img src="images/expression.svg" style="transform: scale(0.5); margin: 0; padding: 0;">
+    <img src="images/expression.svg" style="margin: 0; padding: 0;">
     <p>
         BACON consists of two types of expressions:
     </p>
@@ -107,23 +107,23 @@
         <tt>]</tt><small> one right bracket</small> is an <b>or</b> expression. <b>or</b> expressions will always
         evaluate to the first valid element within the given set of elements.
     </p>
-    <img src="images/or.svg" style="transform: scale(0.5); margin: 0; padding: 0;">
+    <img src="images/or.svg" style="margin: 0; padding: 0;">
     <p>
         An ordered list of elements that start with <tt>[[</tt><small>two left brackets</small> and ends with
         <tt>]]</tt><small>two right brackets</small> is an <b>and</b> expression. <b>and</b> expressions will always
         evaluate to the entire set of elements if the set as a whole is valid.
     </p>
-    <img src="images/and.svg" style="transform: scale(0.5); margin: 0; padding: 0;">
+    <img src="images/and.svg" style="margin: 0; padding: 0;">
     <p>
         An element can be an expression or string. Elements can be nested.
     </p>
-    <img src="images/element.svg" style="transform: scale(0.5); margin: 0; padding: 0;">
+    <img src="images/element.svg" style="margin: 0; padding: 0;">
     <p>
         A string is a sequence of zero or more Unicode characters, wrapped in double quotes, using backslash escapes.
         A character is represented as a single character string. This is identical to the JSON string, with the addition
         of the comma as a control character.
     </p>
-    <img src="images/string.svg" style="transform: scale(0.5); margin: 0; padding: 0;">
+    <img src="images/string.svg" style="margin: 0; padding: 0;">
     <p>
         Whitespace can be inserted between any pair of tokens. Excepting a few encoding details, that completely
         describes the language.
