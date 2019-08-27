@@ -1,187 +1,157 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Language" content="en">
-    <link rel="icon" type="image/gif" href="images/favicon.png">
-    <title>BACLang</title>
-    <style>
-        @font-face {
-            font-family: 'Programma';
-            font-weight: bold;
-            src: url('Programma-Bold.woff2') format('woff2');
-        }
-        body {
-            background-color: linen;
-            padding-left: 5%;
-            padding-right: 5%;
-        }
-        ul ul {
-            list-style: disc;
-        }
-        hr {
-            background-color: black;
-            border: 0px;
-            color: black;
-            height: 2px;
-            padding: 0px;
-        }
-        pre {
-            background-color: white;
-            border: 2pt solid black;
-            padding: 10pt;
-        }
-        div#spec {
-            display: grid;
-            gap: 1em;
-            grid-template-columns: 1fr max-content;
-        }
-        div#text {
-        }
-        code, pre, tt  {
-            font-family: Programma, monospace;
-            font-size: 100%;
-            font-style: normal;
-            font-weight: bold;
-        }
-        small {
-            font-family: 'Century Schoolbook', serif;
-            font-size: 8pt;
-            font-style: italic;
-            font-weight: normal;
-            margin-left: 2pt;
-            margin-right: 0.75pt;
-        }
-        a {
-            text-decoration: none;
-        }
-        a:link {
-            color: navy;
-        }
-        a:visited {
-            color: maroon;
-        }
-        a:hover {
-            color: blue;
-            text-decoration: underline;
-        }
-        a:active {
-            color: red;
-        }
-    </style>
-</head><body>
-<table border="0" width="100%">
-    <tbody><tr>
-        <td align="center" valign="middle">
-            <div style="border: 2px solid black; padding: 10px; background-color: white; margin-right: 0; font-family: serif;">
-                <h1 align="center">BACLang</h1>
-            </div>
-        </td>
-    </tr>
-    </tbody>
-</table>
-<div id="spec"><div id="text">
-    <p><b>BACLang</b> (Bracket Annotated Constraint Language), or <b>BACON</b> (Bracket Annotated COnstraint Notation)
-        is a lightweight constraint based logical language/format. It is valid <a href="http://json.org/">JSON</a>, and
-        consequently easy for humans to read and write. It is easy for machines to parse and generate. BACON is a text
-        format that is completely language independent that uses simple structures found in JSON, allowing for it to be
-        sent over JSON based APIs and parsed in any language that supports JSON. These properties make BACON an ideal
-        format for constraint based logical expressions.
-    </p>
-    <p>
-        BACON is solely built on arrays and strings - universal data structures. Virtually all modern programming
-        languages support them in one form or another. It makes sense that a constraint based logical format that is
-        interchangeable with programming languages also be based on these structures.
-    </p>
-    <p>
-        BACON's foundation is the expression. An expression is an ordered list of elements. If an element
-        within an outer expression is an expression, the inner expression evaluates before the outer expression
-        does.
-    </p>
-    <img src="images/expression.svg" style="margin: 0; padding: 0;">
-    <p>
-        BACON consists of two types of expressions:
-    </p>
-    <p>
-        An ordered list of elements that start with <tt>[</tt><small>one left bracket</small> and ends with
-        <tt>]</tt><small> one right bracket</small> is an <b>or</b> expression. <b>or</b> expressions will always
-        evaluate to the first valid element within the given set of elements.
-    </p>
-    <img src="images/or.svg" style="margin: 0; padding: 0;">
-    <p>
-        An ordered list of elements that start with <tt>[[</tt><small>two left brackets</small> and ends with
-        <tt>]]</tt><small>two right brackets</small> is an <b>and</b> expression. <b>and</b> expressions will always
-        evaluate to the entire set of elements if the set as a whole is valid.
-    </p>
-    <img src="images/and.svg" style="margin: 0; padding: 0;">
-    <p>
-        An element can be an expression or string. Elements can be nested.
-    </p>
-    <img src="images/element.svg" style="margin: 0; padding: 0;">
-    <p>
-        A string is a sequence of zero or more Unicode characters, wrapped in double quotes, using backslash escapes.
-        A character is represented as a single character string. This is identical to the JSON string, with the addition
-        of the comma as a control character.
-    </p>
-    <img src="images/string.svg" style="margin: 0; padding: 0;">
-    <p>
-        Whitespace can be inserted between any pair of tokens. Excepting a few encoding details, that completely
-        describes the language.
-    </p>
-    <img src="images/whitespace.svg" style="margin: 0; padding: 0;">
-</div>
-<div id="grammar"><pre><a href="https://www.crockford.com/mckeeman.html">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Language" content="en">
+        <link rel="icon" type="image/gif" href="images/favicon.png">
+        <title>BACONLang</title>
+        <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+        <link href="css/fontawesome.min.css" rel="stylesheet">
+        <link href="css/brands.min.css" rel="stylesheet">
+        <link href="css/styles.css" type="text/css" rel="stylesheet">
+        <!DOCTYPE html>
+    </head>
+    <body>
+        <div class="content">
+            <header>
+                <h1>BACONLang</h1>
+                <p>
+                    <b>BACONLang</b> (Bracket Annotated CONstraint Language), or <b>BACON</b> is a lightweight constraint based logical
+                    language/format. It is valid <a href="http://json.org/">JSON</a>, and consequently easy for humans to read and
+                    write. It is easy for machines to parse and generate. BACON is a text format that is completely language
+                    independent that uses simple structures found in JSON, allowing for it to be sent over JSON based APIs and
+                    parsed in any language that supports JSON. These properties make BACON an ideal format for constraint based
+                    logical expressions.
+                </p>
+                <p>
+                    BACON is solely built on arrays and strings - universal data structures. Virtually all modern programming
+                    languages support them in one form or another. It makes sense that a constraint based logical format that is
+                    interchangeable with programming languages also be based on these structures.
+                </p>
+            </header>
+
+            <section>
+                <p>
+                    BACON's foundation is the expression. An expression is an ordered list of elements. If an element within an outer
+                    expression is an expression, the inner expression evaluates before the outer expression does.
+                </p>
+                <div class="diagram">
+                    <img src="images/expression.svg" class="diagram-small">
+                </div>
+
+                <p>
+                    BACON consists of two types of expressions:
+                </p>
+            </section>
+
+            <section>
+                <p>
+                    An ordered list of elements that start with <code>[</code><small>one left bracket</small> and ends with
+                    <code>]</code><small> one right bracket</small> is an <b>or</b> expression. <b>or</b> expressions will always
+                    evaluate to the first valid element within the given set of elements.
+                </p>
+                <div class="diagram">
+                    <img src="images/or.svg" class="diagram-small">
+                </div>
+            </section>
+
+            <section>
+                <p>
+                    An ordered list of elements that start with <tt>[[</tt><small>two left brackets</small> and ends with
+                    <code>]]</code><small>two right brackets</small> is an <b>and</b> expression. <b>and</b> expressions will always
+                    evaluate to the entire set of elements if the set as a whole is valid.
+                </p>
+                <div class="diagram">
+                    <img src="images/and.svg" class="diagram-small">
+                </div>
+            </section>
+
+            <section>
+                <p>An element can be an expression or string.</p>
+                <div class="diagram">
+                    <img src="images/element.svg" class="diagram-small">
+                </div>
+            </section>
+
+            <section>
+                <p>
+                    A string is a sequence of zero or more Unicode characters, wrapped in double quotes, using backslash escapes.
+                    A character is represented as a single character string. This is identical to the JSON string, with the addition
+                    of the comma as a control character.
+                </p>
+                <div class="diagram">
+                    <img src="images/string.svg" class="diagram-large">
+                </div>
+            </section>
+
+            <section>
+                <p>
+                    Whitespace can be inserted between any pair of tokens. Excepting a few encoding details, that completely
+                    describes the language.
+                </p>
+                <div class="diagram">
+                    <img src="images/whitespace.svg" class="diagram-medium">
+                </div>
+            </section>
+
+        </div>
+        <div class="side">
+            <section class="links">
+                <a href="https://www.github.com/baconlang" target="_blank"><i class="icon fab fa-github-square"></i></a>
+                <a href="https://twitter.com/stringify_caleb" target="_blank"><i class="icon fab fa-twitter-square"></i></a>
+            </section>
+            <pre><a href="https://www.crockford.com/mckeeman.html">
 bacon
-    expression
+expression
 
 expression
-    or
-    and
+or
+and
 
 or
-    <b>'['</b> elements <b>']'</b>
+<b>'['</b> elements <b>']'</b>
 
 and
-    <b>'['</b> ws <b>['</b> elements <b>']'</b> ws <b>']'</b>
+<b>'['</b> ws <b>['</b> elements <b>']'</b> ws <b>']'</b>
 
 elements
-    element
-    element <b>','</b> elements
+element
+element <b>','</b> elements
 
 element
-    ws string ws
-    ws expression ws
+ws string ws
+ws expression ws
 
 string
-    <b>'"'</b> characters <b>'"'</b>
+<b>'"'</b> characters <b>'"'</b>
 
 characters
-    <b>""</b>
-    character characters
+<b>""</b>
+character characters
 
 character
-    <b>'0020'</b> <b>.</b> <b>'10ffff'</b> <b>-</b> <b>'"'</b> <b>-</b> <b>'\'</b> <b>-</b> <b>','</b>
-    <b>'\'</b> escape
+<b>'0020' . '10ffff' - '"' - '\' - ','</b>
+<b>'\'</b> escape
 
 escape
-    <b>'"'</b>
-    <b>'\'</b>
-    <b>','</b>
+<b>'"'</b>
+<b>'\'</b>
+<b>','</b>
 
 ws
-    <b>""</b>
-    <b>'0020'</b> ws
-    <b>'000D'</b> ws
-    <b>'000A'</b> ws
-    <b>'0009'</b> ws
-</a></pre></div>
-</div>
-<hr>
-<div style="float: left">
-    <ul>
-        <li>Python:<ul>
-            <li><a href="https://pypi.org/project/baclang/">baclang</a>.</li>
-        </ul></li>
-    </ul>
-</div>
-</body></html>
+<b>""</b>
+<b>'0020'</b> ws
+<b>'000D'</b> ws
+<b>'000A'</b> ws
+<b>'0009'</b> ws
+            </a></pre>
+            <section>
+                <ul>
+                    <li>Python:<ul>
+                        <li><a href="https://pypi.org/project/baconlang/">baconlang</a></li>
+                    </ul></li>
+                </ul>
+            </section>
+        </div>
+    </body>
+</html>

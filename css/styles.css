@@ -1,0 +1,107 @@
+body {
+    background-color: #666699;
+    padding: 2.5%;
+}
+
+header, section, pre {
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 5px;
+    padding: 0pt 10pt 0 10pt;
+    margin: 0 0 10pt 0;
+    overflow-x: scroll;
+}
+
+section.links {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    margin-top: -4px;
+    margin-bottom: 9px;
+}
+
+ul ul {
+    list-style: disc;
+}
+
+code, pre  {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 100%;
+    font-style: normal;
+    font-weight: bold;
+}
+
+small {
+    font-family: 'Century Schoolbook', serif;
+    font-size: 8pt;
+    font-style: italic;
+    font-weight: normal;
+    margin-left: 2pt;
+    margin-right: 0.75pt;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link {
+    color: #666699;
+}
+
+a:visited {
+    color: #cc3333;
+}
+
+a:hover {
+    color: #996699;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #9933ff;
+}
+
+.diagram {
+    width: 100%;
+    text-align: center;
+    overflow-x: scroll;
+}
+
+.diagram-small {
+    height: 200px;
+    viewBox: 0 0 0 0;
+}
+
+.diagram-medium {
+    height: 375px;
+    viewBox: 0 0 0 0;
+}
+
+.diagram-large {
+    height: 760px;
+    viewBox: 0 0 0 0;
+}
+
+.icon {
+    font-size: 64px;
+    color: white;
+    margin-right: 8px;
+}
+
+.icon:hover {
+    color: #ccccff;
+}
+
+.content {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 70%;
+}
+
+.side {
+    box-sizing: border-box;
+    display: inline-block;
+    float: right;
+    padding-left: 10pt;
+    width: 30%;
+}
